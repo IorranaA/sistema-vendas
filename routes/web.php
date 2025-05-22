@@ -7,16 +7,16 @@ use App\Http\Controllers\ClienteController;
 use App\Http\Controllers\ProdutoController;
 use App\Http\Controllers\HomeController;
 
-// Ativa rotas de autenticação
+
 Auth::routes();
 
-// Página inicial -> Dashboard
+// Página inicial
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
-// Rotas de Cliente (CRUD)
+// Rotas de Cliente
 Route::resource('clientes', ClienteController::class)->except(['show']);
 
-// Rotas de Produto (CRUD)
+// Rotas de Produt
 Route::resource('produtos', ProdutoController::class)->except(['show']);
 
 // Rotas de Venda

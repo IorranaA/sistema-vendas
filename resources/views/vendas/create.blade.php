@@ -89,12 +89,12 @@
     </form>
 </div>
 
-{{-- PRODUTOS DISPONÍVEIS NO JS --}}
+{{-- PRODUTOS DISPONÍVEIS--}}
 <script>
     const produtos = @json($produtos);
 </script>
 
-{{-- SCRIPTS --}}
+{{-- paerte 2 scripts--}}
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
 let itemIndex = 0;
@@ -106,7 +106,7 @@ function atualizarTotal() {
         total += subtotal;
     });
 
-    // Removido valor_entrada
+
 
     $('#valor_total').val(total.toFixed(2));
 }
@@ -129,7 +129,6 @@ function adicionarItem() {
 
     $('#tabela-itens tbody').append(row);
 
-    // Ativar Select2 imediatamente no novo select
     row.find('.produto-select').select2({
         width: '100%',
         placeholder: 'Selecione um produto',
@@ -387,7 +386,6 @@ function adicionarParcelaManual() {
         </tr>
     `);
 
-    // Recalcula os valores das parcelas automaticamente após adicionar
     recalcularParcelasAoEditar(-1);
 }
 

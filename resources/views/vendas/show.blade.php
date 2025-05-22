@@ -88,7 +88,6 @@
 </div>
 
 
-                <!-- Coloque isso abaixo da tabela, dentro do <form> -->
 <div id="intervaloContainer" class="d-none">
     <label for="intervaloDias" class="form-label mt-3">Intervalo entre parcelas (em dias)</label>
     <input type="number" class="form-control w-25" id="intervaloDias" name="intervaloDias" min="1" value="30" placeholder="Intervalo (dias)">
@@ -119,10 +118,8 @@ document.getElementById('btnEditarParcelas').addEventListener('click', function 
     document.getElementById('intervaloContainer').classList.remove('d-none');
     document.querySelectorAll('.btnRemoverParcela').forEach(btn => btn.classList.remove('d-none'));
 
-    // Esconde o botão de editar
+    
     this.classList.add('d-none');
-
-    // Reseta os índices congelados
     frozenIndexes.clear();
 });
 
@@ -194,7 +191,7 @@ function validarERecalcular(triggerIndex = null) {
         }
     });
 
-    // Desabilita botão se houver erro
+    // Desabilita botão se der erro
     document.getElementById('btnSalvarParcelas').disabled = !valido;
     if (!valido && !document.getElementById('alertParcela')) {
         let alert = document.createElement('div');
@@ -261,7 +258,7 @@ function redistribuirParcelas() {
         valores.push(parseFloat(input.value) || 0);
     });
 
-    // Reindexar inputs para não repetir nomes
+  
     rows.forEach((row, i) => {
         row.querySelectorAll('input').forEach(input => {
             if (input.name.includes('[data_vencimento]')) {

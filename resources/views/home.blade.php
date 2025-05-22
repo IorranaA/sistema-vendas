@@ -4,7 +4,7 @@
 <div class="container">
     <h2 class="mb-4">Dashboard</h2>
 
-    {{-- KPIs --}}
+ 
     <div class="row mb-4">
         <div class="col-md-3">
             <div class="card text-white bg-primary shadow-sm">
