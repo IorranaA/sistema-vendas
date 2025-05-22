@@ -106,7 +106,7 @@ function atualizarTotal() {
         total += subtotal;
     });
 
-    // Removido valor_entrada
+
 
     $('#valor_total').val(total.toFixed(2));
 }
@@ -129,7 +129,7 @@ function adicionarItem() {
 
     $('#tabela-itens tbody').append(row);
 
-    // Ativar Select2 imediatamente no novo select
+ 
     row.find('.produto-select').select2({
         width: '100%',
         placeholder: 'Selecione um produto',
@@ -229,7 +229,7 @@ $(document).ready(function() {
             somaParcelas += parseFloat($(this).val()) || 0;
         });
 
-        // Arredondar para evitar problemas com casas decimais
+        // Arredondar para evitar problemas com casas decimais (nao funciona)
         // somaParcelas = parseFloat(somaParcelas.toFixed(2));
 
         if (somaParcelas > valorTotal) {
