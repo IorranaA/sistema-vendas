@@ -89,12 +89,12 @@
     </form>
 </div>
 
-{{-- PRODUTOS DISPONÍVEIS--}}
+{{-- PRODUTOS DISPONÍVEIS NO JS --}}
 <script>
     const produtos = @json($produtos);
 </script>
 
-{{-- paerte 2 scripts--}}
+{{-- SCRIPTS --}}
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
 let itemIndex = 0;
@@ -106,7 +106,7 @@ function atualizarTotal() {
         total += subtotal;
     });
 
-
+    // Removido valor_entrada
 
     $('#valor_total').val(total.toFixed(2));
 }
@@ -129,6 +129,7 @@ function adicionarItem() {
 
     $('#tabela-itens tbody').append(row);
 
+    // Ativar Select2 imediatamente no novo select
     row.find('.produto-select').select2({
         width: '100%',
         placeholder: 'Selecione um produto',
@@ -228,14 +229,14 @@ $(document).ready(function() {
             somaParcelas += parseFloat($(this).val()) || 0;
         });
 
-        // Arredondar para evitar problemas com casas decimais (n funciona ainda)
+        // Arredondar para evitar problemas com casas decimais
         // somaParcelas = parseFloat(somaParcelas.toFixed(2));
 
         if (somaParcelas > valorTotal) {
             e.preventDefault();
             alert(`A soma das parcelas (${somaParcelas.toFixed(2)}) excede o valor total da venda (${valorTotal.toFixed(2)}). Corrija antes de salvar.`);
             
-            // Destacar campos dps de erro em calclo
+            // Destacar campos com erro
             $('.valor-parcela').each(function () {
                 $(this).toggleClass('is-invalid', true);
             });
@@ -271,7 +272,7 @@ $(document).ready(function() {
             $('#qtd_parcelas').val('');
         }
     });
-        // dps de editar uma parcela manualmente
+        // Quando editar uma parcela manualmente
    $(document).on('input', '.valor-parcela', function () {
     const input = $(this);
     const row = input.closest('tr');
@@ -386,7 +387,9 @@ function adicionarParcelaManual() {
         </tr>
     `);
 
+    // Recalcula os valores das parcelas automaticamente após adicionar
     recalcularParcelasAoEditar(-1);
+
 }
 
 
